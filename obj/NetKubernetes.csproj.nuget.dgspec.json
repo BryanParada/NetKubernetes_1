@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\NET7\\NetKubernetes\\NetKubernetes.csproj": {}
+    "C:\\NET7\\NetKubernetes_1\\NetKubernetes.csproj": {}
   },
   "projects": {
-    "C:\\NET7\\NetKubernetes\\NetKubernetes.csproj": {
+    "C:\\NET7\\NetKubernetes_1\\NetKubernetes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\NET7\\NetKubernetes\\NetKubernetes.csproj",
+        "projectUniqueName": "C:\\NET7\\NetKubernetes_1\\NetKubernetes.csproj",
         "projectName": "NetKubernetes",
-        "projectPath": "C:\\NET7\\NetKubernetes\\NetKubernetes.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\NET7\\NetKubernetes\\obj\\",
+        "projectPath": "C:\\NET7\\NetKubernetes_1\\NetKubernetes.csproj",
+        "packagesPath": "C:\\Users\\Bryan\\.nuget\\packages\\",
+        "outputPath": "C:\\NET7\\NetKubernetes_1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Bryan\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
