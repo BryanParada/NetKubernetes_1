@@ -20,4 +20,6 @@ public class Inmueble{
     
     public DateTime? FechaCreacion { get; set; }
 
+    public Guid? UsuarioId { get; set; }
+
 }
