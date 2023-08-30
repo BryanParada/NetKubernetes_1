@@ -52,7 +52,7 @@ public class UsuarioRepository : IUsuarioRepository
     {
         var usuario = await _userManager.FindByEmailAsync(request.Email!);
 
-        await _signInManager.CheckPasswordSignInAsync(usuario!, request.Password, false); //false para prevenir bloqueo de cuenta con intentos fallidos de pwd
+        await _signInManager.CheckPasswordSignInAsync(usuario!, request.Password!, false); //false para prevenir bloqueo de cuenta con intentos fallidos de pwd
 
         return TransformerUserToUserDto(usuario!);
     }
