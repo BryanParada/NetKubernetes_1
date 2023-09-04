@@ -9,7 +9,7 @@ public class InmuebleProfile : Profile{
     public InmuebleProfile()
     {
         CreateMap<Inmueble, InmuebleResponseDto>();
-        CreateMap<InmuebleResponseDto, Inmueble>();
+        CreateMap<InmuebleRequestDto, Inmueble>();
     }
 
 }
