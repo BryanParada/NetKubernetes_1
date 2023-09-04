@@ -92,8 +92,32 @@ app.UseMiddleware<ManagerMiddleware>();
 
 app.UseHttpsRedirection();
 
+//cors
+app.UseCors("corsapp");
+
 app.UseAuthorization();
 
 app.MapControllers();
+
+using (var ambiente = app.Services.CreateScope())
+{
+    var services = ambiente.ServiceProvider;
+
+    try{
+       var userManager = services.GetRequiredService<UserManager<Usuario>>();
+       var context = services.GetRequiredService<AppDbContext>();
+       await context.Database.MigrateAsync(); 
+       await LoadDatabase.InsertarData(context, userManager);
+    }
+    catch (Exception e)
+    {
+        var logging = services.GetRequiredService<ILogger<Program>>();
+        logging.LogError(e, "Ocurrió un error en la migración");
+    }
+
+}
+
+
+
 
 app.Run();
