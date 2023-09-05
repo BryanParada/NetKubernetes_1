@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using System.Text;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication;
@@ -56,18 +57,18 @@ builder.Services.AddSingleton<ISystemClock, SystemClock>();
 //generador de tokens
 builder.Services.AddScoped<IJwtGenerador, JwtGenerador>();
 //inyectar al usuario sesion
-builder.Services.AddScoped<IUsuarioSesion, IUsuarioSesion>();
+builder.Services.AddScoped<IUsuarioSesion, UsuarioSesion>();
 //inyectar al repositorio de usuario
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 //setear el esquema de seguridad para que el usuario ingrese con el token - configuracion de seguridad de tokens
-var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Mi palabra secreta")); // llave en JwtGenerador.cs
+var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Esta es Mi palabra secreta para autenticacion ha sido extendida para alcanzar mas de 512 bits")); // llave en JwtGenerador.cs
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(opt => {
                     opt.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = key,
+                        IssuerSigningKey = key, //key
                         ValidateAudience = false,
                         ValidateIssuer = false
                     };
@@ -90,9 +91,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseMiddleware<ManagerMiddleware>();
 
-app.UseHttpsRedirection();
-
-//cors
+app.UseAuthentication();
 app.UseCors("corsapp");
 
 app.UseAuthorization();

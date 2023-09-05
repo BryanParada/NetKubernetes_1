@@ -17,7 +17,7 @@ public class JwtGenerador : IJwtGenerador
         };
 
         //creacion llave seguridad
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Mi palabra secreta"));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Esta es Mi palabra secreta para autenticacion ha sido extendida para alcanzar mas de 512 bits"));
         //crear credenciales que tendra el token
         var credenciales = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
