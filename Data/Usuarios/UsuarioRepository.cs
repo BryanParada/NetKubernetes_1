@@ -91,7 +91,7 @@ public class UsuarioRepository : IUsuarioRepository
             );
         }
 
-        var existeUsername = await _contexto.Users.Where(x => x.UserName == request.Username).AnyAsync();
+        var existeUsername = await _contexto.Users.Where(x => x.UserName == request.UserName).AnyAsync();
         if(existeUsername)
         {
             throw new MiddlewareException(
@@ -105,7 +105,7 @@ public class UsuarioRepository : IUsuarioRepository
             Apellido = request.Apellido,
             Telefono = request.Telefono,
             Email = request.Email,
-            UserName = request.Username
+            UserName = request.UserName,
         };
 
         var resultado = await _userManager.CreateAsync(usuario!, request.Password! );

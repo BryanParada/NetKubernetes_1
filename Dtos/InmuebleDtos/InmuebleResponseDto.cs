@@ -12,6 +12,6 @@ public class InmuebleResponseDto{
 
     public string? Picture { get; set; }
 
-    public DateTime FechaCreacion { get; set; }
+    public DateTime? FechaCreacion { get; set; }
 
 }

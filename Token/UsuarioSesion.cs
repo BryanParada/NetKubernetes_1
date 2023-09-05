@@ -1,14 +1,15 @@
 using System.Security.Claims;
-using Azure.Identity;
+
+
 
 namespace NetKubernetes.Token;
 
 public class UsuarioSesion : IUsuarioSesion
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
-    public UsuarioSesion(IHttpContextAccessor httpContextAccesor)
+    public UsuarioSesion(IHttpContextAccessor httpContextAccessor)
     {
-        _httpContextAccessor = httpContextAccesor;
+        _httpContextAccessor = httpContextAccessor;
     }
     public string ObtenerUsuarioSesion()
     {

@@ -13,7 +13,7 @@ public class Inmueble{
     public string? Direccion { get; set; }
 
     [Required]
-    [Column(TypeName = "decimal(18, 4)")]
+    [Column(TypeName = "decimal(18,4)")]
     public decimal Precio { get; set; }
 
     public string? Picture { get; set; }

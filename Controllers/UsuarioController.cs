@@ -11,13 +11,14 @@ public class UsuarioController : ControllerBase{
 
     private readonly IUsuarioRepository _repository;
 
-    public UsuarioController(IUsuarioRepository respository)
+    public UsuarioController(IUsuarioRepository repository)
     {
-        _repository = respository;
+        _repository = repository;
     }
 
-    [AllowAnonymous] //puede ser consultado desde cualquier tipo de cliente
-    [HttpPost("/login")]
+    
+    [AllowAnonymous]
+    [HttpPost("login")]
     public async Task<ActionResult<UsuarioResponseDto>> Login(
         [FromBody] UsuarioLoginRequestDto request
     ){
@@ -26,7 +27,7 @@ public class UsuarioController : ControllerBase{
     }
 
     [AllowAnonymous] //puede ser consultado desde cualquier tipo de cliente
-    [HttpPost("/registrar")]
+    [HttpPost("registrar")]
     public async Task<ActionResult<UsuarioResponseDto>> registrar(
         [FromBody] UsuarioRegistroRequestDto request
     ){
